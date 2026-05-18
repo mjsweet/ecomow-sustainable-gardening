@@ -1,0 +1,135 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTA from "../../components/CTA.astro";
+
+export function getStaticPaths() {
+  const suburbs = [
+    { name: "Loganlea", description: "Our homebase suburb. Full range of services available with weekly and fortnightly maintenance.", isHomebase: true, days: ["Monday"] },
+    { name: "Marsden", description: "Regular lawn care and garden maintenance services available.", days: ["Tuesday"] },
+    { name: "Crestmead", description: "Professional garden care with weekly and fortnightly maintenance.", days: ["Tuesday"] },
+    { name: "Logan Reserve", description: "Expert garden maintenance services for Logan Reserve properties.", days: ["Tuesday"] },
+    { name: "Chambers Flat", description: "Reliable lawn care and garden services for Chambers Flat residents.", days: ["Tuesday"] },
+    { name: "Berrinba", description: "Eco-friendly garden care and lawn maintenance in Berrinba.", days: ["Tuesday"] },
+    { name: "Drewvale", description: "Professional gardening services for Drewvale properties.", days: ["Tuesday"] },
+    { name: "Browns Plains", description: "Comprehensive garden maintenance services in Browns Plains.", days: ["Tuesday"] },
+    { name: "Parkinson", description: "Expert lawn care and garden services in Parkinson.", days: ["Tuesday"] },
+    { name: "Heritage Park", description: "Sustainable gardening and lawn care in Heritage Park.", days: ["Tuesday"] },
+    { name: "Kingston", description: "Reliable garden maintenance and lawn care in Kingston.", days: ["Wednesday"] },
+    { name: "Logan Central", description: "Professional garden services in Logan Central.", days: ["Wednesday"] },
+    { name: "Slacks Creek", description: "Eco-friendly lawn care and garden maintenance in Slacks Creek.", days: ["Wednesday"] },
+    { name: "Woodridge", description: "Expert garden care and restoration services in Woodridge.", days: ["Wednesday"] },
+    { name: "Underwood", description: "Professional sustainable gardening services in Underwood.", days: ["Wednesday"] },
+    { name: "Waterford West", description: "Comprehensive garden maintenance in Waterford West.", days: ["Thursday"] },
+    { name: "Bethania", description: "Reliable lawn care and garden services in Bethania.", days: ["Thursday"] },
+    { name: "Edens Landing", description: "Eco-friendly garden maintenance in Edens Landing.", days: ["Thursday"] },
+    { name: "Holmview", description: "Professional lawn care and garden services in Holmview.", days: ["Thursday"] },
+    { name: "Beenleigh", description: "Expert sustainable garden care in Beenleigh.", days: ["Thursday"] },
+    { name: "Waterford", description: "Comprehensive garden maintenance services in Waterford.", days: ["Friday"] },
+    { name: "Bahrs Scrub", description: "Professional eco-friendly garden care in Bahrs Scrub.", days: ["Friday"] },
+    { name: "Buccan", description: "Reliable lawn and garden maintenance in Buccan.", days: ["Friday"] },
+    { name: "Logan Village", description: "Expert garden services for Logan Village properties.", days: ["Friday"] },
+    { name: "Yarrabilba", description: "Sustainable lawn care and garden maintenance in Yarrabilba.", days: ["Friday"] },
+  ];
+
+  return suburbs.map((suburb) => ({
+    params: { suburb: suburb.name.toLowerCase().replace(/\s+/g, "-") },
+    props: { suburb },
+  }));
+}
+
+const { suburb } = Astro.props;
+const services = [
+  { name: "Lawn Care", href: "/services/lawn-care", desc: "Regular mowing with electric equipment, organic fertilising, and precision edging." },
+  { name: "Garden Maintenance", href: "/services/garden-maintenance", desc: "Complete garden care including weeding, pruning, mulching, and planting." },
+  { name: "Hedging Services", href: "/services/hedging-services", desc: "Professional hedge trimming, shaping, and renovation." },
+  { name: "Garden Restoration", href: "/services/garden-restoration", desc: "Transform overgrown gardens into beautiful outdoor spaces." },
+];
+---
+
+<BaseLayout
+  title={`Garden Services ${suburb.name} | EcoMow Sustainable Gardening`}
+  description={`Professional eco-friendly garden services in ${suburb.name}. Lawn care, garden maintenance, hedging, and restoration using quiet electric tools and organic practices. Free quotes.`}
+  keywords={`${suburb.name} garden services, lawn care ${suburb.name}, garden maintenance ${suburb.name}, sustainable gardening`}
+>
+  <section class="bg-gradient-to-br from-primary-50 to-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <p class="text-primary-600 text-sm mb-2">
+        <a href="/service-areas" class="hover:underline">Service Areas</a> / {suburb.name}
+      </p>
+      <h1 class="text-4xl md:text-5xl font-bold text-secondary-900 mb-4">
+        Sustainable Garden Services in <span class="text-primary-700">{suburb.name}</span>
+      </h1>
+      <p class="text-lg text-secondary-600 mb-6 max-w-2xl">{suburb.description}</p>
+
+      {suburb.isHomebase && (
+        <div class="bg-primary-100 border border-primary-200 rounded-lg p-4 mb-8 max-w-2xl">
+          <p class="text-primary-800 font-semibold">Our Homebase</p>
+          <p class="text-sm text-primary-700">As our home suburb, Loganlea residents enjoy priority scheduling and the fastest response times.</p>
+        </div>
+      )}
+
+      <div class="flex flex-wrap gap-3 mb-8">
+        <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Free Quotes</span>
+        <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">2-Hour Response</span>
+        <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">$20M Insured</span>
+        <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Electric Tools</span>
+        <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Organic Treatments</span>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="/quote" class="inline-block bg-primary-800 text-white font-semibold px-8 py-4 rounded-full hover:bg-primary-900 transition-colors text-center text-lg shadow-lg">
+          Get Free Quote for {suburb.name}
+        </a>
+      </div>
+
+      {suburb.days && (
+        <p class="mt-4 text-sm text-secondary-500">
+          Regular service day{suburb.days.length > 1 ? "s" : ""}: <span class="font-medium">{suburb.days.join(", ")}</span>
+        </p>
+      )}
+    </div>
+  </section>
+
+  <!-- Services Available -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-10 text-secondary-900">Services Available in {suburb.name}</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {services.map((s) => (
+          <div class="bg-secondary-50 rounded-xl p-6">
+            <h3 class="text-xl font-semibold text-secondary-800 mb-2">{s.name}</h3>
+            <p class="text-secondary-500 text-sm mb-4">{s.desc}</p>
+            <a href={s.href} class="text-primary-700 font-medium text-sm hover:text-primary-800">Learn more</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why EcoMow in this suburb -->
+  <section class="py-16 bg-secondary-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-10 text-secondary-900">Why Choose EcoMow in {suburb.name}?</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { title: "Local Knowledge", desc: `Understanding of ${suburb.name} climate, soil conditions, and garden requirements.` },
+          { title: "Eco-Friendly", desc: "Quiet electric tools and organic treatments that are safe for families, pets, and the environment." },
+          { title: "Reliable Service", desc: "Regular scheduled maintenance you can count on, week after week." },
+          { title: "Free Quotes", desc: "No-obligation property assessment with detailed quote within 2 hours." },
+        ].map((item) => (
+          <div class="bg-white rounded-xl p-6 text-center shadow-sm">
+            <h3 class="font-semibold text-secondary-800 mb-2">{item.title}</h3>
+            <p class="text-sm text-secondary-500">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTA
+    heading={`Get Your ${suburb.name} Garden Quote Today`}
+    subheading="Join your neighbours who trust EcoMow for professional, eco-friendly garden care. Free assessment, same-day quotes, no obligation."
+    primaryCta="Get Free Quote"
+    primaryUrl="/quote"
+  />
+</BaseLayout>

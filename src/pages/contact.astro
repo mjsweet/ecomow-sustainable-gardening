@@ -1,0 +1,129 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CTA from "../components/CTA.astro";
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://www.ecomow.com.au/contact#faq",
+  mainEntity: [
+    { "@type": "Question", name: "What areas do you service?", acceptedAnswer: { "@type": "Answer", text: "EcoMow is based in Loganlea and services Logan area suburbs including Loganlea, Marsden, Crestmead, Logan Reserve, and Chambers Flat. We offer different service levels depending on your location." } },
+    { "@type": "Question", name: "Do you use only electric equipment?", acceptedAnswer: { "@type": "Answer", text: "We use 100% electric hand tools for all regular maintenance work. For challenging scenarios like overgrown properties or large acreage, we use a petrol-powered Bobcat zero-turn mower." } },
+    { "@type": "Question", name: "What makes your service eco-friendly?", acceptedAnswer: { "@type": "Answer", text: "Our eco-friendly approach includes 100% electric hand tools for regular maintenance, organic fertilisers, natural pest management, water-wise practices, and promoting local native plants for biodiversity." } },
+    { "@type": "Question", name: "How do you charge for services?", acceptedAnswer: { "@type": "Answer", text: "Pricing varies based on property size, service frequency, and specific requirements. We provide detailed quotes after assessing your garden's needs. Contact us for a free quote." } },
+    { "@type": "Question", name: "Can you maintain native Australian gardens?", acceptedAnswer: { "@type": "Answer", text: "Absolutely! We specialise in Southeast Queensland native plants and understand their specific care requirements, seasonal patterns, and how to create sustainable native garden ecosystems." } },
+    { "@type": "Question", name: "Do you provide one-off or regular services?", acceptedAnswer: { "@type": "Answer", text: "We offer both one-off services for specific projects and regular maintenance schedules. Many clients prefer ongoing maintenance for consistent garden health and appearance." } },
+    { "@type": "Question", name: "What happens if it rains on my scheduled day?", acceptedAnswer: { "@type": "Answer", text: "We monitor weather conditions and will reschedule if necessary. Safety and quality are our priorities, and wet conditions can be unsuitable for certain garden tasks." } },
+    { "@type": "Question", name: "Are your fertilisers safe for pets and children?", acceptedAnswer: { "@type": "Answer", text: "Yes, we use only organic, pet-safe, and child-safe fertilisers and treatments. Our approach prioritises the health and safety of your family and pets." } },
+    { "@type": "Question", name: "What are your service windows and scheduling?", acceptedAnswer: { "@type": "Answer", text: "We work within maintenance windows: 8:00-10:00am, 10:00am-12:00pm, 12:00-2:00pm, or 2:00-4:00pm. We cannot provide exact arrival times, but guarantee completion within your chosen day and window." } },
+  ],
+});
+---
+
+<BaseLayout
+  title="Contact EcoMow | Get Professional Garden Care | Matthew Sweet"
+  description="Contact EcoMow Sustainable Gardening for professional eco-friendly garden services. Call 0404 072 631 or email matthew@ecomow.com.au for quotes and enquiries."
+  keywords="contact EcoMow, garden services quote, lawn care enquiry, Matthew Sweet contact, sustainable gardening"
+  canonical="https://www.ecomow.com.au/contact"
+  schema={schema}
+>
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h1 class="text-4xl font-bold text-center mb-4 text-secondary-900">Contact EcoMow</h1>
+      <p class="text-center text-secondary-500 mb-12 text-lg">We'd love to hear from you. Get in touch for a free quote or any questions about our services.</p>
+
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-2xl font-bold mb-6 text-secondary-800">Get in Touch</h2>
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="bg-primary-100 p-3 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-secondary-800">Phone</h3>
+                <p class="text-secondary-600"><a href="tel:0404072631" class="text-primary-700 hover:text-primary-800">0404 072 631</a></p>
+                <p class="text-sm text-secondary-400 mt-1">Speak to Matthew directly</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="bg-primary-100 p-3 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-secondary-800">Email</h3>
+                <p class="text-secondary-600">matthew@ecomow.com.au</p>
+                <p class="text-sm text-secondary-400 mt-1">Quick questions welcome</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="bg-primary-100 p-3 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-secondary-800">Location</h3>
+                <p class="text-secondary-600">Based in Loganlea, QLD 4131</p>
+                <p class="text-sm text-secondary-400 mt-1">Serving Logan and surrounding areas</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 p-6 bg-primary-50 rounded-xl">
+            <h3 class="font-semibold text-secondary-800 mb-4">Response Times</h3>
+            <ul class="space-y-2 text-sm text-secondary-600">
+              <li><span class="font-medium">Quote requests:</span> Within 2 hours</li>
+              <li><span class="font-medium">General enquiries:</span> Within 24 hours</li>
+              <li><span class="font-medium">Available:</span> 7 days a week</li>
+              <li><span class="font-medium">Service windows:</span> 8am-10am, 10am-12pm, 12pm-2pm, 2pm-4pm</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-6 text-secondary-800">Send a Message</h2>
+          <form class="space-y-4" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="contact" />
+            <p class="hidden">
+              <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+            </p>
+            <div>
+              <label for="name" class="block text-sm font-medium text-secondary-700 mb-1">Name</label>
+              <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none" />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-secondary-700 mb-1">Email</label>
+              <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none" />
+            </div>
+            <div>
+              <label for="phone" class="block text-sm font-medium text-secondary-700 mb-1">Phone</label>
+              <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none" />
+            </div>
+            <div>
+              <label for="service" class="block text-sm font-medium text-secondary-700 mb-1">Service Interested In</label>
+              <select id="service" name="service" class="w-full px-4 py-2 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none">
+                <option value="">Select a service</option>
+                <option value="lawn-care">Lawn Care</option>
+                <option value="garden-maintenance">Garden Maintenance</option>
+                <option value="hedging-services">Hedging Services</option>
+                <option value="garden-restoration">Garden Restoration</option>
+                <option value="acreage-services">Acreage Services</option>
+                <option value="pruning-services">Pruning Services</option>
+                <option value="real-estate-support">Real Estate Support</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium text-secondary-700 mb-1">Message</label>
+              <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-primary-800 text-white font-semibold px-6 py-3 rounded-full hover:bg-primary-900 transition-colors">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+</BaseLayout>

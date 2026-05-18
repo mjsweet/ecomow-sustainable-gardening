@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.ecomow.com.au/sitemap-index.xml
+
+User-agent: GPTBot
+Disallow: /

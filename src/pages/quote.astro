@@ -1,0 +1,106 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Get a Free Quote | EcoMow Sustainable Gardening Services"
+  description="Request a free quote for professional eco-friendly garden services from EcoMow. Custom pricing for lawn care, garden maintenance, hedging, and acreage slashing across Logan and surrounding areas."
+  keywords="garden services quote, lawn care pricing, hedge trimming quote, acreage slashing cost, eco-friendly gardening quote"
+>
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4">
+      <h1 class="text-4xl font-bold text-center mb-4 text-secondary-900">Get Your Free Quote</h1>
+      <p class="text-center text-secondary-500 mb-4 text-lg">Fill out the form below and we'll get back to you within 2 hours with a detailed, no-obligation quote.</p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8 text-center text-sm">
+        <div class="bg-primary-50 rounded-lg p-3">
+          <p class="font-semibold text-primary-800">Free Assessment</p>
+          <p class="text-secondary-500">No cost, no catch</p>
+        </div>
+        <div class="bg-primary-50 rounded-lg p-3">
+          <p class="font-semibold text-primary-800">Same-Day Quotes</p>
+          <p class="text-secondary-500">Within 2 hours</p>
+        </div>
+        <div class="bg-primary-50 rounded-lg p-3">
+          <p class="font-semibold text-primary-800">No Obligation</p>
+          <p class="text-secondary-500">No pressure</p>
+        </div>
+        <div class="bg-primary-50 rounded-lg p-3">
+          <p class="font-semibold text-primary-800">Fully Insured</p>
+          <p class="text-secondary-500">$20M coverage</p>
+        </div>
+      </div>
+
+      <form class="space-y-5 bg-secondary-50 rounded-xl p-8 shadow-md" name="quote" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="quote" />
+        <p class="hidden">
+          <label>Don't fill this out: <input name="bot-field" /></label>
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label for="name" class="block text-sm font-medium text-secondary-700 mb-1">Full Name *</label>
+            <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none bg-white" placeholder="Your name" />
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-secondary-700 mb-1">Email Address *</label>
+            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none bg-white" placeholder="your@email.com" />
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label for="phone" class="block text-sm font-medium text-secondary-700 mb-1">Phone Number</label>
+            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none bg-white" placeholder="0400 000 000" />
+          </div>
+          <div>
+            <label for="suburb" class="block text-sm font-medium text-secondary-700 mb-1">Your Suburb *</label>
+            <input type="text" id="suburb" name="suburb" required class="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none bg-white" placeholder="e.g. Loganlea" />
+          </div>
+        </div>
+
+        <div>
+          <label for="service" class="block text-sm font-medium text-secondary-700 mb-1">Service Required *</label>
+          <select id="service" name="service" required class="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none bg-white">
+            <option value="">Please select...</option>
+            <option value="lawn-care">Lawn Care</option>
+            <option value="garden-maintenance">Garden Maintenance</option>
+            <option value="hedging-services">Hedging Services</option>
+            <option value="garden-restoration">Garden Restoration</option>
+            <option value="acreage-services">Acreage Services</option>
+            <option value="pruning-services">Pruning Services</option>
+            <option value="real-estate-support">Real Estate Support</option>
+            <option value="multiple">Multiple Services</option>
+            <option value="other">Other / Not Sure</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="frequency" class="block text-sm font-medium text-secondary-700 mb-1">Service Frequency</label>
+          <select id="frequency" name="frequency" class="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none bg-white">
+            <option value="">Please select...</option>
+            <option value="weekly">Weekly</option>
+            <option value="fortnightly">Fortnightly</option>
+            <option value="monthly">Monthly</option>
+            <option value="one-off">One-off</option>
+            <option value="not-sure">Not Sure</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="details" class="block text-sm font-medium text-secondary-700 mb-1">Tell Us About Your Property</label>
+          <textarea id="details" name="details" rows="4" class="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none bg-white" placeholder="Property size, specific needs, special requirements, or anything else you'd like us to know..."></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-primary-800 text-white font-semibold px-8 py-4 rounded-full hover:bg-primary-900 transition-colors text-lg shadow-lg">
+          Get Your Free Quote
+        </button>
+
+        <p class="text-sm text-center text-secondary-400 mt-4">
+          We'll respond within 2 hours. Free assessment, no obligation.
+          By submitting, you agree to our <a href="/privacy" class="text-primary-600 hover:underline">Privacy Policy</a>.
+        </p>
+      </form>
+    </div>
+  </section>
+</BaseLayout>

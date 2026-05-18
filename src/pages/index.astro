@@ -1,0 +1,351 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import TestimonialCard from "../components/TestimonialCard.astro";
+import CTA from "../components/CTA.astro";
+
+const testimonials = [
+  {
+    name: "Riche Tan",
+    role: "Real Estate Agent",
+    quote: "Matt has been so helpful to us. Getting the job done on time and was professional. He is one to trust with the gardening needs.",
+  },
+  {
+    name: "Julie Duggan",
+    role: "Logan Customer",
+    quote: "I can not say enough positive things about Matthew Sweet. Not only is he my favourite person but he is so professional. I would recommend EcoMow Sustainable Gardening to anybody.",
+  },
+  {
+    name: "Debbie D",
+    role: "Marsden Customer",
+    source: "HiPages",
+    quote: "I highly recommend this business. Matt is an excellent communicator and had our quote and job done efficiently. He even took our rubbish to the tip for us.",
+  },
+  {
+    name: "Lisa B",
+    role: "Mount Warren Park Customer",
+    source: "HiPages",
+    quote: "I needed my lawn mowed and green waste removal on the same day I contacted Matthew he was very helpful and done a fantastic job for me. I highly recommend Eco mow",
+  },
+  {
+    name: "Fraser M",
+    role: "Crestmead Customer",
+    source: "HiPages",
+    quote: "I have connected with Matt, Great job every time!! On time awesome guy!! Would highly recommend",
+  },
+  {
+    name: "Stephen P",
+    role: "Holmview Customer",
+    source: "HiPages",
+    quote: "Quick, honest, reliable, trustworthy, an absolute gentleman and did a fantastic professional job",
+  },
+];
+
+const services = [
+  {
+    title: "Lawn Care Services",
+    description: "Keep your lawn pristine with our eco-friendly mowing, edging, and organic fertilising. Professional results without the weekend work.",
+    href: "/services/lawn-care",
+    price: "From $100 per visit",
+  },
+  {
+    title: "Garden Maintenance",
+    description: "Complete garden care including weeding, pruning, mulching, and planting. Transform your outdoor space into a thriving ecosystem.",
+    href: "/services/garden-maintenance",
+    price: "From $100 per visit",
+  },
+  {
+    title: "Hedging Services",
+    description: "Expert hedge trimming, topiary maintenance, and restoration. Create beautiful boundaries and privacy with professional shaping.",
+    href: "/services/hedging-services",
+    price: "From $100 per visit",
+  },
+  {
+    title: "Garden Restoration",
+    description: "Transform overgrown and neglected gardens into beautiful, sustainable outdoor spaces. Complete makeovers and eco rehabilitation.",
+    href: "/services/garden-restoration",
+    price: "From $220 per project",
+  },
+];
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://www.ecomow.com.au/#organisation",
+  name: "EcoMow Sustainable Gardening",
+  alternateName: "EcoMow",
+  description: "Professional eco-friendly lawn care and garden maintenance services in Logan area. Founded January 2024 by Matthew Sweet, offering sustainable mowing, organic fertilising, and expert garden care with commercial-grade electric tools.",
+  url: "https://www.ecomow.com.au",
+  logo: "https://www.ecomow.com.au/assets/ecomow-logo-wit-bg.svg",
+  image: "https://www.ecomow.com.au/assets/ecomow-logo-wit-bg.svg",
+  foundingDate: "2024-01-01",
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+61-404-072-631",
+    contactType: "customer service",
+    areaServed: "Logan City, QLD",
+    availableLanguage: "English",
+    hoursAvailable: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      opens: "07:00",
+      closes: "18:00",
+    },
+  },
+  founder: {
+    "@type": "Person",
+    name: "Matthew Sweet",
+    jobTitle: "Director & Founder",
+    sameAs: "https://linkedin.com/in/mjsweet",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Loganlea",
+    addressRegion: "Queensland",
+    postalCode: "4131",
+    addressCountry: "AU",
+  },
+  sameAs: [
+    "https://www.facebook.com/ecomowgardening",
+    "https://www.instagram.com/ecomowgardening/",
+    "https://linkedin.com/in/mjsweet",
+    "https://maps.app.goo.gl/BDuExjecasKPTujT9",
+    "https://hipages.com.au/connect/ecomowsustainablegardening",
+  ],
+  aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "10", bestRating: "5", worstRating: "1" },
+  priceRange: "$$",
+});
+---
+
+<BaseLayout
+  title="EcoMow Sustainable Gardening | Eco-Friendly Lawn Care & Garden Maintenance"
+  description="Professional eco-friendly garden services in Logan area. Quiet electric tools, organic fertilisers, and sustainable practices. Free quotes within 2 hours. Trusted by dozens of satisfied clients with over 350 projects completed."
+  keywords="eco-friendly lawn care, garden maintenance Logan, electric garden tools, sustainable gardening, organic fertilising, Loganlea, Marsden, Crestmead"
+  ogImage="/assets/ecomow-logo-wit-bg.svg"
+  schema={schema}
+>
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-primary-50 via-white to-primary-100 py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="flex-1 text-center md:text-left">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary-900 leading-tight mb-6">
+            Save Time &amp; Help the Environment with
+            <span class="text-primary-700"> Professional Garden Care</span>
+          </h1>
+          <p class="text-lg text-secondary-600 mb-8 max-w-2xl">
+            Get a perfectly maintained garden without the weekend work. Our eco-friendly approach
+            using quiet electric tools and organic treatments keeps your Logan property beautiful
+            while protecting the environment. Trusted by dozens of satisfied clients with over 350
+            garden restoration and maintenance jobs completed in the last financial year.
+          </p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8 text-sm">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 bg-primary-500 rounded-full"></span>
+              <span>100% Quiet Electric Tools</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 bg-primary-500 rounded-full"></span>
+              <span>Fully Insured</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 bg-primary-500 rounded-full"></span>
+              <span>Free Quotes</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 bg-primary-500 rounded-full"></span>
+              <span>Local Expert</span>
+            </div>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <a
+              href="/quote"
+              class="inline-block bg-primary-800 text-white font-semibold px-8 py-4 rounded-full hover:bg-primary-900 transition-colors text-lg shadow-lg text-center"
+            >
+              Get Your Free Quote Today
+            </a>
+            <a
+              href="/services"
+              class="inline-block border-2 border-primary-800 text-primary-800 font-semibold px-8 py-4 rounded-full hover:bg-primary-50 transition-colors text-center"
+            >
+              View Our Services
+            </a>
+          </div>
+        </div>
+        <div class="hidden md:block flex-1">
+          <img
+            src="/images/transformations/hero/slacks-creek-gardening-optimized.jpeg"
+            alt="Beautiful sustainable garden transformation in Slacks Creek showing lush lawn, native plants, and eco-friendly landscaping"
+            class="rounded-2xl shadow-2xl w-full max-w-lg mx-auto"
+            width="600"
+            height="400"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-4 text-secondary-900">Our Sustainable Gardening Services</h2>
+      <p class="text-center text-secondary-500 mb-12 max-w-2xl mx-auto">
+        Professional eco-friendly garden services for Logan and surrounding areas. All regular
+        maintenance uses 100% electric tools with organic treatments.
+      </p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {services.map((service) => <ServiceCard {...service} />)}
+      </div>
+      <div class="text-center mt-8">
+        <a href="/services" class="text-primary-700 font-semibold hover:text-primary-800">
+          View all services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-16 bg-secondary-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-4 text-secondary-900">What Our Customers Say</h2>
+      <p class="text-center text-secondary-500 mb-12 max-w-2xl mx-auto">
+        Join dozens of satisfied customers across Logan and surrounding areas who trust EcoMow for their garden care. With over 350 successful projects completed in the last financial year.
+      </p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {testimonials.map((t) => <TestimonialCard {...t} />)}
+      </div>
+      <div class="text-center mt-8">
+        <a href="/quote" class="inline-block bg-primary-800 text-white font-semibold px-8 py-3 rounded-full hover:bg-primary-900 transition-colors">
+          Join Our Happy Customers - Get Quote
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-16 bg-white" id="faq">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-10 text-secondary-900">Quick Questions &amp; Answers</h2>
+      <div class="space-y-4">
+        {[
+          { q: "What areas do you service?", a: "EcoMow services Logan area suburbs including Loganlea, Marsden, Crestmead, Logan Reserve, and Chambers Flat. Contact us to confirm availability in your area." },
+          { q: "Do you use only electric equipment?", a: "We use 100% electric hand tools for regular maintenance. For challenging scenarios like overgrown properties, we use a petrol Bobcat zero-turn mower when necessary." },
+          { q: "Are your treatments safe for pets and children?", a: "Yes, we use only organic, pet-safe, and child-safe fertilisers and treatments. Your family's health and safety is our priority." },
+          { q: "What makes your service eco-friendly?", a: "Our approach includes 100% electric hand tools, organic fertilisers, natural pest management, and promoting native plants for biodiversity." },
+        ].map((faq) => (
+          <details class="bg-secondary-50 rounded-lg p-4 group">
+            <summary class="font-semibold text-secondary-800 cursor-pointer list-none flex justify-between items-center">
+              {faq.q}
+              <span class="text-primary-600 group-open:rotate-45 transition-transform text-xl">+</span>
+            </summary>
+            <p class="mt-3 text-secondary-600 leading-relaxed">{faq.a}</p>
+          </details>
+        ))}
+      </div>
+      <div class="text-center mt-6">
+        <a href="/contact#faq" class="text-primary-700 font-medium hover:text-primary-800">View all frequently asked questions</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Equipment Section -->
+  <section class="py-16 bg-white border-t">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-10 text-secondary-900">Professional Equipment for Every Job</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <h3 class="text-xl font-semibold mb-3 text-secondary-800">100% Electric Hand Tools</h3>
+          <p class="text-secondary-600">All regular maintenance uses ultra-quiet Kress electric mower, backpack blower, and hand tools. Zero emissions with whisper-quiet operation.</p>
+        </div>
+        <div class="text-center">
+          <h3 class="text-xl font-semibold mb-3 text-secondary-800">Petrol Bobcat for Challenging Jobs</h3>
+          <p class="text-secondary-600">36" deck petrol zero-turn mower for overgrown properties, large acreage, and scenarios beyond electric tool capability.</p>
+        </div>
+        <div class="text-center">
+          <h3 class="text-xl font-semibold mb-3 text-secondary-800">Right Tool for the Job</h3>
+          <p class="text-secondary-600">Electric tools for regular maintenance, petrol equipment only when necessary. We match our approach to your specific property needs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Real Estate Agent Section -->
+  <section class="py-16 bg-primary-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="flex-1">
+          <h2 class="text-3xl font-bold mb-4 text-secondary-900">Are You a Real Estate Agent?</h2>
+          <p class="text-secondary-600 mb-6">
+            Transform property presentations with our specialised real estate support services.
+            Fast turnaround, professional staging, and emergency cleanup designed specifically
+            for sales and rental agents.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+            <div class="flex items-center gap-3">
+              <span class="w-2 h-2 bg-primary-500 rounded-full"></span>
+              <span class="text-sm">24-48 hour emergency response available</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-2 h-2 bg-primary-500 rounded-full"></span>
+              <span class="text-sm">Professional staging for photography &amp; viewings</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-2 h-2 bg-primary-500 rounded-full"></span>
+              <span class="text-sm">Before/after documentation for marketing</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-2 h-2 bg-primary-500 rounded-full"></span>
+              <span class="text-sm">Priority booking system for agents</span>
+            </div>
+          </div>
+          <blockquote class="border-l-4 border-primary-400 pl-4 mb-6 text-secondary-600 italic">
+            "Matt has been so helpful to us. Getting the job done on time and was professional.
+            He is one to trust with the gardening needs." - Riche Tan, Real Estate Agent
+          </blockquote>
+          <div class="flex gap-4">
+            <a href="/services/real-estate-support" class="inline-block bg-primary-800 text-white font-semibold px-6 py-3 rounded-full hover:bg-primary-900 transition-colors">
+              View Agent Services
+            </a>
+            <a href="/quote" class="inline-block border-2 border-primary-800 text-primary-800 font-semibold px-6 py-3 rounded-full hover:bg-primary-50 transition-colors">
+              Get Priority Quote
+            </a>
+          </div>
+        </div>
+        <div class="hidden md:block flex-1">
+          <img
+            src="/images/homepage/real-estate-after-512x384.jpg"
+            alt="Professional property garden transformation completed for real estate agent - pristine lawn and garden presentation"
+            class="rounded-xl shadow-lg w-full max-w-md mx-auto"
+            width="512"
+            height="384"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose EcoMow -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-10 text-secondary-900">Why Choose EcoMow?</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {[
+          { title: "Eco-Friendly", desc: "Quiet electric tools and organic practices for sustainable gardening" },
+          { title: "Electric-First Approach", desc: "100% electric hand tools for regular maintenance, petrol equipment only for challenging scenarios" },
+          { title: "Professional", desc: "Expert knowledge and reliable service you can trust" },
+          { title: "Local Expertise", desc: "Understanding of Southeast Queensland climate and native plants" },
+        ].map((item) => (
+          <div class="text-center">
+            <h3 class="font-semibold text-secondary-800 mb-2">{item.title}</h3>
+            <p class="text-sm text-secondary-500">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <CTA />
+</BaseLayout>

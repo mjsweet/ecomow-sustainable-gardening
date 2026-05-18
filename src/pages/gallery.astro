@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CTA from "../components/CTA.astro";
+---
+
+<BaseLayout
+  title="Gallery - EcoMow Garden Transformations"
+  description="Explore our comprehensive gallery showcasing real garden transformations across Logan and surrounding areas. See detailed before and after results organised by service type and location."
+  keywords="gallery, garden transformation, before after, landscaping portfolio, Logan gardens, sustainable gardening, lawn care results, garden restoration"
+  ogImage="https://www.ecomow.com.au/images/og-gallery.jpg"
+>
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <h1 class="text-4xl font-bold text-center mb-4 text-secondary-900">Our Garden Transformations</h1>
+      <p class="text-center text-secondary-500 mb-12 text-lg max-w-2xl mx-auto">
+        Explore our most impressive garden transformations. Each project tells a story of sustainable practices and remarkable results.
+      </p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: "Complete Overgrown Property Restoration", location: "Logan Central", time: "2-day transformation", img: "/images/transformations/gallery/garden-restoration-real-estate-agency-overgrown-004.jpg" },
+          { title: "Agency Property Restoration", location: "Logan Central", time: "2-day project", img: "/images/transformations/gallery/garden-restoration-real-estate-agency-edging-005.jpg" },
+          { title: "Bond Clean Garden Restoration", location: "Springwood", time: "1-day project", img: "/images/transformations/gallery/garden-restoration-restoration-bond-mowing-017.jpg" },
+          { title: "Professional Trimming & Restoration", location: "Daisy Hill", time: "2-day project", img: "/images/transformations/gallery/garden-restoration-real-estate-agency-restoration-019.jpg" },
+          { title: "Vacant Land Transformation", location: "Shailer Park", time: "1-day project", img: "/images/transformations/gallery/lawn-care-vacant-land-mowing-001.jpg" },
+          { title: "Comprehensive Weeding & Restoration", location: "Beenleigh", time: "2-day project", img: "/images/transformations/gallery/garden-restoration-weeds-restoration-013.jpg" },
+        ].map((project) => (
+          <div class="bg-white rounded-xl shadow-md overflow-hidden border border-secondary-100 group hover:shadow-lg transition-shadow">
+            <img src={project.img} alt={project.title} class="w-full h-56 object-cover" loading="lazy" width="400" height="300" />
+            <div class="p-4">
+              <h3 class="font-semibold text-secondary-800 mb-1">{project.title}</h3>
+              <div class="flex justify-between text-sm text-secondary-500">
+                <span>{project.location}</span>
+                <span>{project.time}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  <CTA />
+</BaseLayout>

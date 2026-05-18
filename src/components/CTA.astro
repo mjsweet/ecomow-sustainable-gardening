@@ -1,0 +1,52 @@
+---
+export interface Props {
+  heading?: string;
+  subheading?: string;
+  primaryCta?: string;
+  primaryUrl?: string;
+  secondaryCta?: string;
+  secondaryUrl?: string;
+  showTrust?: boolean;
+}
+const {
+  heading = "Ready to Save Time & Get Your Weekends Back?",
+  subheading = "Get a free quote today and see how we can transform your outdoor space with our eco-friendly approach.",
+  primaryCta = "Get Free Quote",
+  primaryUrl = "/quote",
+  secondaryCta = "Call: 0404 072 631",
+  secondaryUrl = "tel:0404072631",
+  showTrust = true,
+} = Astro.props;
+---
+
+<section class="bg-primary-900 text-white py-16">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4">{heading}</h2>
+    <p class="text-primary-100 text-lg mb-8 max-w-2xl mx-auto">{subheading}</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <a
+        href={primaryUrl}
+        class="inline-block bg-white text-primary-900 font-semibold px-8 py-3 rounded-full hover:bg-primary-50 transition-colors text-lg shadow-lg"
+      >
+        {primaryCta}
+      </a>
+      {secondaryCta && secondaryUrl && (
+        <a
+          href={secondaryUrl}
+          class="inline-block border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white hover:text-primary-900 transition-colors"
+        >
+          {secondaryCta}
+        </a>
+      )}
+    </div>
+    {showTrust && (
+      <div class="mt-6 text-sm text-primary-200 space-x-4">
+        <span>100% Satisfaction Guarantee</span>
+        <span class="hidden sm:inline">|</span>
+        <span>Fully Insured &amp; Licensed</span>
+        <span class="hidden sm:inline">|</span>
+        <span>No Obligation Quotes</span>
+      </div>
+    )}
+  </div>
+</section>

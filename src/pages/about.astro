@@ -1,0 +1,117 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CTA from "../components/CTA.astro";
+---
+
+<BaseLayout
+  title="About EcoMow | Sustainable Gardening Experts | Matthew Sweet"
+  description="Learn about EcoMow Sustainable Gardening and founder Matthew Sweet. Our mission to provide eco-friendly garden care using quiet electric tools and organic practices in Loganlea and surrounding areas."
+  keywords="about EcoMow, Matthew Sweet, sustainable gardening, eco-friendly lawn care, electric garden tools, organic gardening"
+>
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h1 class="text-4xl font-bold text-center mb-4 text-secondary-900">About EcoMow Sustainable Gardening</h1>
+      <p class="text-center text-secondary-500 mb-12 text-lg">
+        Leading the way in eco-friendly garden care in Logan and surrounding areas with over 350
+        garden restoration and maintenance jobs completed in the last financial year.
+      </p>
+
+      <!-- Matthew's Journey -->
+      <div class="bg-secondary-50 rounded-2xl p-8 mb-12">
+        <h2 class="text-2xl font-bold mb-6 text-secondary-800">Matthew's Journey</h2>
+        <div class="prose prose-secondary max-w-none">
+          <p>
+            In January 2024, Matthew Sweet launched EcoMow Sustainable Gardening with a vision to champion
+            "treading lightly upon the earth by nourishing the soil and using quieter and lower emissions equipment."
+            Drawing on over 30 years of experience as a digital IT specialist and successful business owner,
+            Matthew brought a unique problem-solving mindset to garden care.
+          </p>
+          <p>
+            Within just two months, by March 2024, Matthew had established EcoMow on HiPages and began building
+            a reputation for tackling challenging garden restoration projects. His investment in premium commercial
+            equipment &mdash; including the full range of Kress electric tools with revolutionary 8-minute charging
+            technology and a Bobcat ZS2000 36" commercial zero-turn mower &mdash; enables him to handle everything
+            from delicate garden maintenance to heavy-duty property clearances.
+          </p>
+          <p>
+            Matthew's approach combines the efficiency and customer service excellence learned from three decades
+            in digital business and customer service with a genuine passion for sustainable gardening. "Customer
+            service is my number one focus," Matthew explains. "Everything I do is designed to deliver more value
+            to my clients than they give back to me." This commitment shows in the results: over 350 garden
+            restoration and maintenance jobs successfully completed in the last financial year.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <div>
+          <img
+            src="/assets/matthew-and-sarah-sweet.jpg"
+            alt="Mr Matthew Sweet and his Mrs, Dr Sarah Sweet"
+            class="rounded-xl shadow-md w-full"
+            width="512"
+            height="384"
+            loading="lazy"
+          />
+          <p class="text-center text-sm text-secondary-400 mt-2">Mr Matthew Sweet and his Mrs, Dr Sarah Sweet</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4 text-secondary-800">Matthew Sweet</h3>
+          <p class="text-secondary-500 mb-2">Director &amp; Founder</p>
+          <p class="text-sm text-secondary-400 mb-4">Trading since January 2024</p>
+          <div class="space-y-2 text-sm text-secondary-600 mb-6">
+            <p><strong>Phone:</strong> <a href="tel:0404072631" class="text-primary-700">0404 072 631</a></p>
+            <p><strong>Email:</strong> matthew@ecomow.com.au</p>
+            <p><strong>Business:</strong> Icedreamery Property Trust</p>
+            <p><strong>ABN:</strong> <a href="https://abr.business.gov.au/ABN/View/49721370876" rel="noopener noreferrer" target="_blank" class="text-primary-700">49721370876</a></p>
+            <p><strong>Insurance:</strong> $20M Public Liability</p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">Garden Restorations</span>
+            <span class="bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">Real Estate Property Prep</span>
+            <span class="bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">Zoe Farm Organic Compost</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Values -->
+      <div class="grid md:grid-cols-3 gap-8 mb-12">
+        {[
+          { title: "Environmental Responsibility", desc: "We're committed to reducing carbon emissions, protecting biodiversity, and promoting sustainable practices in every aspect of our garden care services." },
+          { title: "Quality Excellence", desc: "Professional standards in every job, using the latest electric equipment and proven organic methods to deliver exceptional results for our clients." },
+          { title: "Community Focus", desc: "Supporting our local community through education, partnerships, and promoting sustainable gardening practices in the greater Brisbane area." },
+        ].map((v) => (
+          <div class="text-center p-6 bg-secondary-50 rounded-xl">
+            <h3 class="font-semibold text-secondary-800 mb-2">{v.title}</h3>
+            <p class="text-sm text-secondary-500">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- What Sets Us Apart -->
+      <h2 class="text-2xl font-bold mb-8 text-center text-secondary-800">What Sets EcoMow Apart</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        {[
+          { title: "Commercial-Grade Kress Equipment", desc: "Complete Kress electric tool lineup with revolutionary Cyberpack batteries that charge in just 8 minutes. Combined with Bobcat ZS2000 36\" commercial zero-turn for demanding scenarios." },
+          { title: "Zoe Farm Organic Products", desc: "Premium organic compost and worm castings produced since 2019. Customers consistently report exceptional results from our locally-made, chemical-free fertilising products." },
+          { title: "Educational Approach", desc: "We share knowledge and provide guidance to help clients understand and maintain their gardens using sustainable practices." },
+          { title: "Logan Area Specialist", desc: "Focused expertise in Logan and surrounding areas, with deep understanding of local climate, soil conditions, and property requirements." },
+          { title: "Customer Service Excellence", desc: "30+ years of customer service and business experience brings systematic problem-solving and exceptional service standards to every garden project." },
+          { title: "Genuine Care", desc: "Personal commitment to every project, treating each garden as if it were our own, with attention to detail and genuine care for results." },
+        ].map((item) => (
+          <div class="p-6 bg-white border border-secondary-100 rounded-xl">
+            <h3 class="font-semibold text-secondary-800 mb-2">{item.title}</h3>
+            <p class="text-sm text-secondary-500">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center">
+        <a href="/quote" class="inline-block bg-primary-800 text-white font-semibold px-8 py-4 rounded-full hover:bg-primary-900 transition-colors text-lg shadow-lg">
+          Experience the EcoMow Difference - Get a Free Quote
+        </a>
+      </div>
+    </div>
+  </section>
+  <CTA />
+</BaseLayout>

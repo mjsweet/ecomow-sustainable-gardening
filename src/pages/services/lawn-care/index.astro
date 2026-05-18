@@ -1,0 +1,171 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CTA from "../../../components/CTA.astro";
+import ServiceCard from "../../../components/ServiceCard.astro";
+
+const subServices = [
+  { title: "Eco-Friendly Mowing", description: "Regular lawn mowing with electric equipment for quiet, emission-free service.", href: "/services/lawn-care/mowing" },
+  { title: "Precision Lawn Edging", description: "Clean, professional edging for defined lawn boundaries and garden beds.", href: "/services/lawn-care/edging" },
+  { title: "Organic Fertilising", description: "Sustainable fertilising programs using organic products for healthy lawn growth.", href: "/services/lawn-care/fertilising" },
+  { title: "Seasonal Lawn Care", description: "Comprehensive seasonal maintenance including aeration and overseeding programs.", href: "/services/lawn-care/seasonal-care" },
+  { title: "Vacant Lot Preparation", description: "Professional clearing and preparation of vacant building lots for new home construction.", href: "/services/lawn-care/vacant-lot-preparation" },
+];
+
+const process = [
+  { step: "1", title: "Trimming & Edging", desc: "Precision edging and trimming completed first for clean lines" },
+  { step: "2", title: "Hedging", desc: "Any hedge trimming or shaping as required" },
+  { step: "3", title: "Mowing", desc: "Complete mowing with catcher or mulching blades as suitable" },
+  { step: "4", title: "Blowdown", desc: "Thorough cleaning of all hard surfaces and pathways" },
+  { step: "5", title: "Complete", desc: "Final inspection and move to next scheduled property" },
+];
+
+const seasons = [
+  { season: "Summer", months: "Dec-Feb", freq: "Weekly to fortnightly", temp: "27-28°C" },
+  { season: "Transitional", months: "Mar-May, Sep-Nov", freq: "Fortnightly", temp: "18-25°C" },
+  { season: "Winter", months: "Jun-Aug", freq: "Monthly", temp: "12-14°C" },
+];
+---
+
+<BaseLayout
+  title="Eco-Friendly Lawn Care Services | EcoMow Sustainable Gardening"
+  description="Professional eco-friendly lawn care using quiet electric tools and organic practices in Loganlea and surrounding areas. From $100 per visit. Free quotes within 2 hours."
+  keywords="eco-friendly lawn care, electric mowing, organic fertilising, lawn care Logan, sustainable lawn maintenance"
+>
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-primary-50 to-white py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold text-secondary-900 mb-6">
+          Professional Eco-Friendly <span class="text-primary-700">Lawn Care</span>
+        </h1>
+        <p class="text-lg text-secondary-600 mb-8">
+          Expert lawn maintenance using quiet electric tools and organic practices. Perfect results without the noise, emissions, or chemical runoff.
+        </p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
+          <div class="flex items-center gap-2 text-sm"><span class="w-2 h-2 bg-primary-500 rounded-full"></span>Quiet electric tools</div>
+          <div class="flex items-center gap-2 text-sm"><span class="w-2 h-2 bg-primary-500 rounded-full"></span>Zero emissions</div>
+          <div class="flex items-center gap-2 text-sm"><span class="w-2 h-2 bg-primary-500 rounded-full"></span>Professional results</div>
+          <div class="flex items-center gap-2 text-sm"><span class="w-2 h-2 bg-primary-500 rounded-full"></span>Organic fertilising</div>
+        </div>
+        <div class="flex flex-wrap gap-3 mb-8">
+          <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">30+ Years Experience</span>
+          <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">500+ Properties Served</span>
+          <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">5-star Customer Rating</span>
+          <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">$20M Insurance</span>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/quote" class="inline-block bg-primary-800 text-white font-semibold px-8 py-4 rounded-full hover:bg-primary-900 transition-colors text-center text-lg shadow-lg">
+            Get Free Quote - 2 Min Form
+          </a>
+          <a href="tel:0404072631" class="inline-block border-2 border-primary-800 text-primary-800 font-semibold px-8 py-4 rounded-full hover:bg-primary-50 transition-colors text-center">
+            Call Matthew: 0404 072 631
+          </a>
+        </div>
+        <div class="mt-4 text-sm text-primary-600 flex flex-wrap gap-3">
+          <span>Free assessment</span><span>Same-day quotes</span><span>No obligation</span><span>Fully insured</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-4 text-secondary-900">Our Professional Lawn Care Process</h2>
+      <p class="text-center text-secondary-500 mb-10">Every property receives our systematic 5-step process that ensures perfect results and maximum efficiency.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        {process.map((p) => (
+          <div class="bg-secondary-50 rounded-xl p-6 text-center w-36">
+            <div class="w-10 h-10 bg-primary-700 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">{p.step}</div>
+            <h3 class="font-semibold text-sm text-secondary-800 mb-1">{p.title}</h3>
+            <p class="text-xs text-secondary-500">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Sub Services -->
+  <section class="py-16 bg-secondary-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-10 text-secondary-900">Our Lawn Care Services</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {subServices.map((s) => <ServiceCard {...s} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Seasonal Schedule -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-10 text-secondary-900">Seasonal Service Frequency Guide</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {seasons.map((s) => (
+          <div class="bg-secondary-50 rounded-xl p-6 text-center">
+            <h3 class="text-xl font-semibold text-primary-700 mb-2">{s.season}</h3>
+            <p class="text-sm text-secondary-500 mb-1">{s.months}</p>
+            <p class="text-lg font-semibold text-secondary-800 mb-1">{s.freq}</p>
+            <p class="text-sm text-secondary-400">Soil temp: {s.temp}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-center text-secondary-500 text-sm mt-6 max-w-xl mx-auto">
+        Science-Based Frequency: Our service intervals are based on soil temperature and grass growth rates, not arbitrary schedules. During cooler months when grass growth slows, we reduce service frequency to save you money.
+      </p>
+    </div>
+  </section>
+
+  <!-- Complete Solution -->
+  <section class="py-16 bg-secondary-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-10 text-secondary-900">Complete Eco-Friendly Lawn Care Solutions</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4 text-secondary-800">Our Eco-Friendly Approach</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3"><span class="w-2 h-2 bg-primary-500 rounded-full mt-2"></span><span class="text-secondary-600"><strong>Primarily Electric Equipment:</strong> Electric hand tools with commercial petrol mower for demanding jobs</span></li>
+            <li class="flex items-start gap-3"><span class="w-2 h-2 bg-primary-500 rounded-full mt-2"></span><span class="text-secondary-600"><strong>Organic Fertilisers:</strong> Chemical-free lawn nutrition</span></li>
+            <li class="flex items-start gap-3"><span class="w-2 h-2 bg-primary-500 rounded-full mt-2"></span><span class="text-secondary-600"><strong>Water-Wise Practices:</strong> Sustainable irrigation and maintenance</span></li>
+            <li class="flex items-start gap-3"><span class="w-2 h-2 bg-primary-500 rounded-full mt-2"></span><span class="text-secondary-600"><strong>Soil Health Focus:</strong> Building healthy soil ecosystems</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4 text-secondary-800">Professional Equipment</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3"><span class="w-2 h-2 bg-primary-500 rounded-full mt-2"></span><span class="text-secondary-600">Commercial-grade electric mowers</span></li>
+            <li class="flex items-start gap-3"><span class="w-2 h-2 bg-primary-500 rounded-full mt-2"></span><span class="text-secondary-600">Battery-powered edging tools</span></li>
+            <li class="flex items-start gap-3"><span class="w-2 h-2 bg-primary-500 rounded-full mt-2"></span><span class="text-secondary-600">Precision trimming equipment</span></li>
+            <li class="flex items-start gap-3"><span class="w-2 h-2 bg-primary-500 rounded-full mt-2"></span><span class="text-secondary-600">Organic fertiliser spreaders</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-10 text-secondary-900">Why Choose EcoMow for Lawn Care?</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: "Professional Expertise", desc: "Skilled in sustainable lawn care practices with expertise in Southeast Queensland conditions." },
+          { title: "Local Focus", desc: "Deep understanding of Southeast Queensland grass types, soil conditions, and seasonal patterns." },
+          { title: "Quality Equipment", desc: "Professional-grade quiet electric tools that deliver superior results without environmental impact." },
+          { title: "Organic Practices", desc: "Certified organic fertilisers and natural pest management for healthier lawns." },
+          { title: "Reliable Service", desc: "Consistent, dependable lawn care that maintains your property's appearance year-round." },
+          { title: "Educational Approach", desc: "We share knowledge to help you understand and maintain your lawn between visits." },
+        ].map((item) => (
+          <div class="bg-secondary-50 rounded-xl p-6 text-center">
+            <h3 class="font-semibold text-secondary-800 mb-2">{item.title}</h3>
+            <p class="text-sm text-secondary-500">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTA
+    heading="Ready for a Perfectly Maintained Lawn?"
+    subheading="Join dozens of satisfied customers who've switched to EcoMow's sustainable lawn care. Free property assessment, same-day quotes, fully insured service."
+  />
+</BaseLayout>

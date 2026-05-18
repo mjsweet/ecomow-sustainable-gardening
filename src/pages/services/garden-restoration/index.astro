@@ -1,0 +1,113 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CTA from "../../../components/CTA.astro";
+import ServiceCard from "../../../components/ServiceCard.astro";
+
+const subServices = [
+  { title: "Overgrown Garden Restoration", description: "Complete restoration of severely overgrown gardens and neglected properties.", href: "/services/garden-restoration/overgrown-gardens" },
+  { title: "Complete Garden Makeovers", description: "Complete restoration and maintenance of overgrown gardens to create manageable, beautiful outdoor spaces.", href: "/services/garden-restoration/complete-makeovers" },
+  { title: "Neglected Property Rehabilitation", description: "Bringing abandoned or neglected properties back to life with eco-friendly practices.", href: "/services/garden-restoration/neglected-properties" },
+  { title: "Eco Garden Rehabilitation", description: "Sustainable garden restoration focusing on native plants and ecological balance.", href: "/services/garden-restoration/eco-rehabilitation" },
+];
+
+const pricing = [
+  { name: "Basic Restoration", price: "$220", duration: "2-5 hours (1 day)", features: ["Property assessment", "Basic maintenance & cleanup", "Basic garden restoration"] },
+  { name: "Complete Makeover", price: "$420", duration: "5-9 hours (1-2 days)", features: ["Comprehensive maintenance work", "Extensive trimming and hedging", "Complete garden cleanup", "Maintenance planning"], popular: true },
+  { name: "Large Property", price: "$620", duration: "9-17 hours (2-3 days)", features: ["Large-scale maintenance work", "Multiple garden areas", "Professional cleanup", "Ongoing care planning"] },
+];
+---
+
+<BaseLayout
+  title="Garden Restoration Services | Transform Overgrown Gardens | EcoMow"
+  description="Professional garden restoration in Logan area. Transform overgrown gardens in 1-3 days starting from $220. Free assessments, 2-hour response. 350+ projects completed."
+  keywords="garden restoration, overgrown garden, garden makeover, neglected property, eco rehabilitation, Logan garden restoration"
+>
+  <section class="bg-gradient-to-br from-primary-50 to-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <nav class="text-sm text-secondary-400 mb-6">
+        <a href="/" class="hover:text-primary-600">Home</a> / <a href="/services" class="hover:text-primary-600">Services</a> / Garden Restoration
+      </nav>
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold text-secondary-900 mb-4">
+          Transform Your Overgrown Garden Into a <span class="text-primary-700">Beautiful Outdoor Space</span>
+        </h1>
+        <p class="text-xl text-secondary-600 mb-2">Professional garden restoration completed in 1-3 days</p>
+        <p class="text-2xl font-bold text-primary-700 mb-6">Starting from $220 per project</p>
+        <div class="flex flex-wrap gap-3 mb-8">
+          <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">350+ Projects Completed</span>
+          <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">100% Eco-Friendly Methods</span>
+          <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Free Assessments</span>
+          <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">Satisfaction Guarantee</span>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/quote" class="inline-block bg-primary-800 text-white font-semibold px-8 py-4 rounded-full hover:bg-primary-900 transition-colors text-center text-lg shadow-lg">
+            Get Your Free Assessment
+          </a>
+          <a href="tel:0404072631" class="inline-block border-2 border-primary-800 text-primary-800 font-semibold px-8 py-4 rounded-full hover:bg-primary-50 transition-colors text-center">
+            Call: 0404 072 631
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sub Services -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-10 text-secondary-900">Our Garden Restoration Services</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {subServices.map((s) => <ServiceCard {...s} price={undefined} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="py-16 bg-secondary-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-10 text-secondary-900">Our Proven 4-Step Restoration Process</h2>
+      <div class="grid md:grid-cols-4 gap-6">
+        {[
+          { step: "1", title: "Assessment & Planning", desc: "Comprehensive property evaluation, soil testing, and detailed restoration planning with timeline and budget." },
+          { step: "2", title: "Clearing & Cleanup", desc: "Safe removal of overgrown vegetation, debris cleanup, and preparation of areas for restoration work." },
+          { step: "3", title: "Restoration & Rehabilitation", desc: "Soil rehabilitation, selective plant preservation, and sustainable garden structure restoration." },
+          { step: "4", title: "Ongoing Care", desc: "Maintenance planning and follow-up care to ensure your restored garden thrives long-term." },
+        ].map((p) => (
+          <div class="bg-white rounded-xl p-6 text-center shadow-sm">
+            <div class="w-10 h-10 bg-primary-700 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">{p.step}</div>
+            <h3 class="font-semibold text-secondary-800 mb-2">{p.title}</h3>
+            <p class="text-sm text-secondary-500">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-4 text-secondary-900">Transparent Pricing for Garden Restoration</h2>
+      <p class="text-center text-secondary-500 mb-10">All quotes include free property assessment and comprehensive maintenance plan. No hidden costs.</p>
+      <div class="grid md:grid-cols-3 gap-8">
+        {pricing.map((p) => (
+          <div class={`rounded-xl p-8 border-2 ${p.popular ? "border-primary-500 bg-primary-50 relative" : "border-secondary-200"} text-center`}>
+            {p.popular && <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary-600 text-white px-4 py-1 rounded-full text-xs font-bold">Most Popular</span>}
+            <h3 class="text-xl font-semibold text-secondary-800 mb-1">{p.name}</h3>
+            <p class="text-3xl font-bold text-primary-700 mb-1">From {p.price}</p>
+            <p class="text-sm text-secondary-400 mb-4">{p.duration}</p>
+            <ul class="text-sm text-secondary-600 space-y-2 mb-6 text-left">
+              {p.features.map((f) => <li class="flex items-start gap-2"><span class="text-primary-500">-</span> {f}</li>)}
+            </ul>
+            <a href="/quote" class="inline-block w-full bg-primary-800 text-white font-semibold px-6 py-3 rounded-full hover:bg-primary-900 transition-colors">
+              Get Quote
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTA
+    heading="Ready to Transform Your Overgrown Garden?"
+    subheading="Get a free property assessment and detailed restoration plan. We'll contact you within 2 hours and arrange a site visit within 2 business days."
+  />
+</BaseLayout>

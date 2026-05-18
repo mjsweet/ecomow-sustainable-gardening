@@ -1,0 +1,16 @@
+---
+export interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+---
+<a href="/" class="flex items-center">
+  <img
+    alt="EcoMow Sustainable Gardening"
+    fetchpriority="high"
+    width="120"
+    height="31"
+    class={compact ? "h-6 w-auto" : "h-8 w-auto"}
+    src="/assets/ecomow-logo-wit-bg.svg"
+  />
+</a>

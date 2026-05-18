@@ -1,0 +1,59 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTA from "../../components/CTA.astro";
+
+const categories = [
+  {
+    title: "Eco-Friendly Lawn Care",
+    slug: "eco-lawn-care",
+    description: "Discover sustainable lawn maintenance techniques that are better for your family and the environment.",
+    articles: ["eco-friendly-maintenance", "electric-tools-benefits", "organic-fertilisers", "seasonal-care", "water-wise-lawns"],
+  },
+  {
+    title: "Garden Techniques",
+    slug: "garden-techniques",
+    description: "Learn professional gardening methods for beautiful, sustainable outdoor spaces.",
+    articles: ["mulching-guide", "pruning-hedging", "soil-health-composting", "climate-wise-plants", "integrated-pest-management"],
+  },
+  {
+    title: "Equipment & Technology",
+    slug: "equipment",
+    description: "Explore the latest in eco-friendly garden equipment and innovative technology.",
+    articles: ["battery-advantages", "green-tech-innovations", "safety-guidelines", "tool-lineup-overview", "tool-maintenance"],
+  },
+  {
+    title: "Environmental Impact",
+    slug: "impact-community",
+    description: "Understand how sustainable gardening positively affects our environment and community.",
+    articles: [],
+  },
+];
+---
+
+<BaseLayout
+  title="Sustainable Gardening Education Hub | Learn with EcoMow"
+  description="Comprehensive educational resources on sustainable gardening, eco-friendly techniques, equipment guides, and environmental stewardship for Southeast Queensland gardens."
+  keywords="sustainable gardening education, eco-friendly gardening guides, garden learning resources, environmental gardening"
+>
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <h1 class="text-4xl font-bold text-center mb-4 text-secondary-900">Sustainable Gardening Education</h1>
+      <p class="text-center text-secondary-500 mb-12 text-lg max-w-2xl mx-auto">
+        Comprehensive resources on sustainable gardening practices, eco-friendly equipment, and environmental stewardship for Southeast Queensland gardens.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        {categories.map((cat) => (
+          <a href={`/learn/${cat.slug}`} class="group bg-secondary-50 rounded-xl p-8 hover:bg-primary-50 transition-colors border border-transparent hover:border-primary-200">
+            <h2 class="text-2xl font-bold mb-3 text-secondary-800 group-hover:text-primary-800">{cat.title}</h2>
+            <p class="text-secondary-500 mb-4">{cat.description}</p>
+            {cat.articles.length > 0 && (
+              <p class="text-sm text-primary-600 font-medium">{cat.articles.length} articles available</p>
+            )}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+  <CTA />
+</BaseLayout>

@@ -1,0 +1,67 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ServiceCard from "../../components/ServiceCard.astro";
+import CTA from "../../components/CTA.astro";
+
+const services = [
+  {
+    title: "Lawn Care Services",
+    description: "Eco-friendly mowing, precision edging, organic fertilising, and seasonal lawn care. Quiet electric equipment for professional results.",
+    href: "/services/lawn-care",
+    price: "From $100 per visit",
+  },
+  {
+    title: "Garden Maintenance",
+    description: "Garden weeding, plant pruning, mulching, and planting. Create and maintain beautiful, sustainable garden beds.",
+    href: "/services/garden-maintenance",
+    price: "From $100 per visit",
+  },
+  {
+    title: "Hedging Services",
+    description: "Professional hedge trimming, topiary shaping, and hedge renovation. Create beautiful boundaries and privacy screening.",
+    href: "/services/hedging-services",
+    price: "From $100 per visit",
+  },
+  {
+    title: "Garden Restoration",
+    description: "Transform overgrown gardens into beautiful outdoor spaces. Complete makeovers, neglected property rehabilitation, and eco rehabilitation.",
+    href: "/services/garden-restoration",
+    price: "From $220 per project",
+  },
+  {
+    title: "Acreage Services",
+    description: "Brush cutting, paddock maintenance, firebreak services, and fence line clearing for large rural properties.",
+    href: "/services/acreage-services",
+    price: "From $200 per visit",
+  },
+  {
+    title: "Pruning Services",
+    description: "Tree pruning, shrub and bush pruning, and height-limited tree pruning up to 3.5m.",
+    href: "/services/pruning-services",
+  },
+  {
+    title: "Real Estate Support",
+    description: "Sales and rental agent services, garden staging, and emergency cleanup with 24-48 hour turnaround.",
+    href: "/services/real-estate-support",
+  },
+];
+---
+
+<BaseLayout
+  title="Professional Gardening Services | EcoMow Sustainable Gardening"
+  description="Comprehensive eco-friendly garden services including lawn care, garden maintenance, hedging, acreage slashing, tree care, and real estate support across Logan and surrounding areas."
+  keywords="garden services, lawn care, hedge trimming, acreage slashing, tree care, organic fertilising, sustainable gardening, electric tools"
+>
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <h1 class="text-4xl font-bold text-center mb-4 text-secondary-900">Our Sustainable Gardening Services</h1>
+      <p class="text-center text-secondary-500 mb-12 max-w-2xl mx-auto text-lg">
+        Comprehensive eco-friendly garden services for Logan and surrounding areas. All regular maintenance uses 100% electric tools with organic treatments.
+      </p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((service) => <ServiceCard {...service} />)}
+      </div>
+    </div>
+  </section>
+  <CTA />
+</BaseLayout>

@@ -1,0 +1,100 @@
+---
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/services", label: "Services" },
+  { href: "/service-areas", label: "Service Areas" },
+  { href: "/learn", label: "Learn" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="bg-white shadow-md sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex justify-between items-center py-3 sm:py-4">
+      <a class="flex items-center" href="/">
+        <img
+          alt="EcoMow Sustainable Gardening"
+          fetchpriority="high"
+          width="120"
+          height="31"
+          class="h-8 w-auto"
+          src="/assets/ecomow-logo-wit-bg.svg"
+        />
+      </a>
+
+      <div class="hidden md:flex items-center space-x-1 lg:space-x-2">
+        {
+          navLinks.map((link) => {
+            const isActive = currentPath === link.href || (link.href !== "/" && currentPath.startsWith(link.href));
+            return (
+              <a
+                href={link.href}
+                class={`font-medium transition-all text-sm px-3 py-2 rounded-full ${
+                  isActive
+                    ? "bg-primary-100 text-primary-800 border-2 border-primary-200"
+                    : "text-secondary-700 hover:text-primary-500 hover:bg-primary-50"
+                }`}
+              >
+                {link.label}
+              </a>
+            );
+          })
+        }
+        <a
+          href="/quote"
+          class={`px-3 py-2 rounded-full font-medium transition-all text-sm text-white ${
+            currentPath === "/quote" ? "bg-primary-600 border-2 border-primary-500" : "bg-primary-800 hover:bg-primary-900"
+          }`}
+        >
+          Get Quote
+        </a>
+      </div>
+
+      <button
+        class="md:hidden inline-flex items-center justify-center rounded-md p-2 text-secondary-600 hover:bg-secondary-50"
+        aria-label="Toggle menu"
+        id="mobile-menu-button"
+      >
+        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+          <title>Menu</title>
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<script is:inline>
+  document.getElementById("mobile-menu-button")?.addEventListener("click", () => {
+    const mobileMenu = document.getElementById("mobile-menu");
+    mobileMenu?.classList.toggle("hidden");
+  });
+</script>
+
+<div id="mobile-menu" class="md:hidden hidden bg-white border-t shadow-lg">
+  <div class="px-4 py-3 space-y-2">
+    {navLinks.map((link) => {
+      const isActive = currentPath === link.href;
+      return (
+        <a
+          href={link.href}
+          class={`block px-3 py-2 rounded-lg text-sm font-medium ${
+            isActive ? "bg-primary-50 text-primary-700" : "text-secondary-700 hover:bg-secondary-50"
+          }`}
+        >
+          {link.label}
+        </a>
+      );
+    })}
+    <a
+      href="/quote"
+      class="block px-3 py-2 rounded-lg text-sm font-medium bg-primary-800 text-white text-center"
+    >
+      Get Quote
+    </a>
+  </div>
+</div>
